@@ -61,3 +61,26 @@ console.log(carro);
 
 const carroSedan = {...carro, portamalas: '500 litros' }
 console.log(carroSedan);
+
+// espressao
+
+const grupoA = 500;
+const grupoB = 200;
+
+if (grupoA > grupoB) {
+    console.log('Grupo A , venceu');
+} else {
+    console.log('Grupo B , venceu');
+}
+
+// mesma logica acima so que com o ternario
+
+const vencedor = grupoA > grupoB ? "Grupo A , venceu" : "Grupo B , venceu";
+console.log(vencedor);
+
+
+// operador &&
+
+const active = true;
+const button = active && 'Botão está ativo';
+console.log(button);
