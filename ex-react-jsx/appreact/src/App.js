@@ -1,31 +1,43 @@
 import React from "react";
 
-const App = () => {
-  const Titulo = <h1>Esse é um titulo</h1>;
-  const nome = "Thiago";
-  const numeroAleatorio = Math.random();
-  const ativo = false;
-  const carro = {
-    marca: "Ford",
-    rodas: 4,
-  };
+const luana = {
+  cliente: "Luana",
+  idade: 27,
+  compras: [
+    { nome: "Notebook", preco: "R$ 2500" },
+    { nome: "Geladeira", preco: "R$ 3000" },
+    { nome: "Smartphone", preco: "R$ 1500" },
+  ],
+  ativa: true,
+};
 
-  const estilo = {
-    color: "blue",
-    fontSize: '50px'
-  }
+const mario = {
+  cliente: "Mario",
+  idade: 31,
+  compras: [
+    { nome: "Notebook", preco: "R$ 2500" },
+    { nome: "Geladeira", preco: "R$ 3000" },
+    { nome: "Smartphone", preco: "R$ 1500" },
+    { nome: "Guitarra", preco: "R$ 3500" },
+  ],
+  ativa: false,
+};
+  
+const App = () => { 
+  const dados = luana;
+
+  const total = dados.compras
+  .map((item)=>
+    Number(item.preco.replace('R$ ', ""))).reduce((a,b)=> a + b);
+
+
   return (
     <>
-      <>{Titulo}</>
-      <h1>Meu app</h1>
-      <p style={estilo}>{new Date().getDate()}</p>
-      <label htmlFor="nome">Nome</label>
-      <input type="text" id="nome" />
-      <p>{carro.marca}</p>
-      <div>
-        <h1 className={ativo ? "ativo" : "inativo"}>{nome}</h1>
-        <h1>{numeroAleatorio * 100}</h1>
-      </div>
+      <p>Nome: {dados.cliente}</p>
+      <p>Idade: {dados.idade}</p>
+      <p>Situação:<span style={{color: dados.ativa ? 'green' : 'red'}}> {dados.ativa ? 'Ativa' : 'Inativa'}</span></p>
+      <p>Total gasto: R${total}</p>
+      {total > 10000 && <p>Você está gastando muito!</p>}
     </>
   );
 };
