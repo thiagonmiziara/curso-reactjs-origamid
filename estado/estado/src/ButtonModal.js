@@ -1,13 +1,10 @@
-import React from 'react'
+import React from "react";
 
-const ButtonModal = ({setModal}) => {
-  return (
-    <button onClick={()=>{
-      setModal(true)
-    }}>
-      Abrir
-    </button>
-  )
-}
+const ButtonModal = ({ setModal }) => {
+  const handleClick = () => {
+    setModal((ativo) => !ativo);
+  };
+  return <button onClick={handleClick}>Abrir</button>;
+};
 
-export default ButtonModal
+export default ButtonModal;
