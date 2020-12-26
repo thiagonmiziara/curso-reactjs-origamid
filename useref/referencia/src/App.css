@@ -102,3 +102,7 @@ hr {
     border: 2px solid black;
     margin: 2rem auto;
 }
+
+.ativo {
+    background: #018;
+}

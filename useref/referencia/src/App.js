@@ -1,16 +1,41 @@
 import React from "react";
+import Ref from './Ref';
 import "./App.css";
 
 const App = () => {
-  const video = React.useRef();
+  const [comentarios, setComentarios] = React.useState([]);
+  const [input, setInput] = React.useState("");
+  const inputElemtent = React.useRef();
 
-  React.useEffect(()=>{
-    console.log(video.current);
-    video.current.className="thiago"
-  },[])
-  return <div className="App">
-    <video ref={video}></video>
-  </div>;
+  function handleClick() {
+    setComentarios([...comentarios, input]);
+    setInput("");
+    inputElemtent.current.focus();
+  }
+
+ 
+
+  return (
+    <div className="App">
+      <div>
+        <Ref/>
+      </div>
+
+      <ul>
+        {comentarios.map((comentario, index) => (
+          <li key={index}>{comentario}</li>
+        ))}
+      </ul>
+      <input
+        ref={inputElemtent}
+        type="text"
+        value={input}
+        onChange={({ target }) => setInput(target.value)}
+      />
+      <br />
+      <button onClick={handleClick}>Enviar</button>
+    </div>
+  );
 };
 
 export default App;
