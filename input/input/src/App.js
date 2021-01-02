@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import Exercicio from "./Exercicio";
 import Form from "./Form";
 
 const App = () => {
@@ -38,6 +39,15 @@ const App = () => {
       <div>
         <br />
         <Form />
+      </div>
+      <br />
+      <br />
+      <div>
+        <br />
+        <h1>Exercicios</h1>
+        <section>
+          <Exercicio />
+        </section>
       </div>
     </div>
   );
