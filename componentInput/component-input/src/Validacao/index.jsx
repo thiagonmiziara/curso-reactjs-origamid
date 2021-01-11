@@ -1,58 +1,58 @@
 import React from "react";
 import Input from "../Form/Input";
+import useInput from "../Hooks/useInput";
 
 const Validacao = () => {
-  const [cep, setCep] = React.useState("");
-  const [error, setError] = React.useState(null);
+  const nome = useInput();
+  const sobrenome = useInput(false);
+  const email = useInput("email");
+  const cep = useInput("cep");
 
-  function validateCep(value) {
-    //funçao para verificar se o cep e valido
-    if (value.length === 0) {
-      setError("Preencha um valor");
-      return false;
-    } else if (!/^\d{5}-?\d{3}$/.test(value)) {
-      setError("Preencha um CEP válido");
-      return false;
-    } else {
-      setError(null);
-      return true;
-    }
-  }
-
-  function handleBlur({ target }) {
-   validateCep(target.value);
-  }
-
-  function handleChange({target}){
-    if(error){
-      validateCep(target.value);
-    }
-    setCep(target.value)
-  }
-
-  function handleSubmit(event){
+  function handleSubmit(event) {
     event.preventDefault();
-    if(validateCep(cep)){
-      console.log('enviou');
-    }else{
-      console.log('Não enviar');
+    if (
+      cep.validate() &&
+      email.validate() &&
+      nome.validate() &&
+      email.validate()
+    ) {
+      console.log("Enviar");
+    } else {
+      console.log("Não enviar");
     }
   }
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1>Validação Cep</h1>
       <Input
+        label="Nome"
+        id="nome"
         type="text"
+        placeholder="Digite seu nome"
+        {...nome}
+      />
+      <Input
+        label="Sobrenome"
+        id="sobrenome"
+        type="text"
+        placeholder="Digite seu sobrenome"
+        {...sobrenome}
+      />
+      <Input
+        label="Email"
+        id="email"
+        type="text"
+        placeholder="seuemail@gmail.com"
+        {...email}
+      />
+      <Input
         label="CEP"
         id="cep"
+        type="text"
         placeholder="00000-000"
-        value={cep}
-        setValue={setCep}
-        onBlur={handleBlur}
-        onchange={handleChange}
+        {...cep}
       />
-      {error && <p>{error}</p> }
+
       <button>Enviar</button>
     </form>
   );
