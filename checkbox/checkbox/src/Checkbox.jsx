@@ -1,5 +1,7 @@
 import React from "react";
 
+const coresArray = ['azul', 'roxo', 'laranja', 'verde', 'vermelho', 'cinza'];
+
 const Checkbox = () => {
   const [cores, setCores] = React.useState(['vermelho']);
 
@@ -19,25 +21,17 @@ const Checkbox = () => {
 
   return (
     <form>
-      <label>
-        <input
+      {coresArray.map((cor)=>(
+        <label key={cor} style={{textTransform: 'capitalize'}}>
+          <input
           type="checkbox"
-          value="azul"
-          checked={checkCor('azul')}
+          value={cor}
+          checked={checkCor(cor)}
           onChange={handleChange}
         />
-        Azul
-      </label>
-
-      <label>
-        <input
-          type="checkbox"
-          value="vermelho"
-          checked={checkCor('vermelho')}
-          onChange={handleChange}
-        />
-        Vermelho
-      </label>
+        {cor}
+        </label>
+      ))}
     </form>
   );
 };
