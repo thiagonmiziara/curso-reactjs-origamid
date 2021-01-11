@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import Checkbox from "./Form/Checkbox";
 import Input from "./Form/Input";
 import Radio from "./Form/Radio";
 import Select from "./Form/Select";
@@ -10,11 +11,35 @@ const App = () => {
   const [produto, setProduto] = React.useState("");
   const [cor, setCor] = React.useState("Vermelho");
   const [fruta, setFruta] = React.useState("Uva");
+  const [linguagens, setLinguagem] = React.useState([]);
+  const [termo, setTermo] = React.useState([]);
+
+  if(termo.length > 0){
+    console.log('enviar')
+  }
+
+
 
 
   return (
     <div className="App">
       <form>
+
+      <h2>Termos</h2>
+        <Checkbox 
+        options={['Li e aceito os termos.']}
+        value={termo}
+        setValue={setTermo}
+        />
+
+
+        <h2>Checkbox</h2>
+        <Checkbox 
+        options={['JavaScript', 'Java', 'PHP']}
+        value={linguagens}
+        setValue={setLinguagem}
+        />
+
         <h2>Cores</h2>
         <Radio 
           options={['Azul', 'Vermelho']}
