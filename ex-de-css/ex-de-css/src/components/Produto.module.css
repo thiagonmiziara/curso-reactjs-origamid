@@ -1,0 +1,15 @@
+.titulo {
+    color: #43c
+}
+
+.preco {
+    font-weight: bold;
+}
+
+.comprar {
+    background: #43c;
+    color: white;
+    padding: 2rem;
+    width: 50%;
+    height: 50px;
+}
