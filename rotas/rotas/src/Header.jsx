@@ -1,8 +1,20 @@
 import React from "react";
 import "./Header.css";
-import { NavLink } from "react-router-dom";
+import { NavLink , useLocation} from "react-router-dom";
+
 
 const Header = () => {
+  const location = useLocation();
+
+  React.useEffect(()=>{
+    console.log('Mudou a rota');
+
+  },[location])
+
+
+
+
+
   return (
     <nav>
       <h1>Esse é o Header</h1>
