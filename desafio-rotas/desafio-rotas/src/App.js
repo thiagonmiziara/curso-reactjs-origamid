@@ -8,6 +8,7 @@ import Contato from "./Components/Contato";
 import Footer from "./Components/Footer";
 
 const App = () => {
+ 
   return (
     <div className="App">
       <BrowserRouter>
