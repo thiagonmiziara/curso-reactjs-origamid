@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "./Button";
 import Header from "./Memo/Header";
+import Contar from "./useReduce/Contar";
 const Contato = React.lazy(() => import("./Lazy/Contato"));
 
 const App = () => {
@@ -23,6 +24,11 @@ const App = () => {
           </React.Suspense>
         )}
         <button onClick={()=> setAtivo(true)}>Clique</button>
+      </div>
+
+      <div>
+        <h1>UseReducer</h1>
+        <Contar/>
       </div>
     </div>
   );
